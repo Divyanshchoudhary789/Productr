@@ -11,6 +11,9 @@ const mainRouter = require("./routes/main.router.js");
 
 const port = process.env.PORT || 8080;
 
+app.use(cookieParser());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 const mongodb_url = process.env.MONGODB_URL;
 
@@ -23,16 +26,14 @@ mongoose.connect(mongodb_url)
     });
 
 
-app.use(cookieParser());
 app.use(
     cors({
-        origin: "https://productr-5edq.onrender.com", 
+        origin: "https://productr-5edq.onrender.com",
         credentials: true,
     })
 );
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+
 
 
 
