@@ -23,16 +23,19 @@ mongoose.connect(mongodb_url)
     });
 
 
-app.use(express.json());
 app.use(cookieParser());
 app.use(
     cors({
-        origin: "https://productr-rouge.vercel.app/",
+        origin: "https://productr-rouge.vercel.app", 
         methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
         allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept"],
         credentials: true,
     })
 );
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 
 
 app.use("/", mainRouter);
