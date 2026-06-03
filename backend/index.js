@@ -26,7 +26,7 @@ mongoose.connect(mongodb_url)
 app.use(cookieParser());
 app.use(
     cors({
-        origin: "https://productr-rouge.vercel.app", 
+        origin: "https://productr-5edq.onrender.com", 
         methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
         allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept"],
         credentials: true,
