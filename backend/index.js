@@ -28,6 +28,8 @@ app.use(cookieParser());
 app.use(
     cors({
         origin: "https://productr-rouge.vercel.app/",
+        methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
+        allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept"],
         credentials: true,
     })
 );
