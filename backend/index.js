@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
 
+// Trust the reverse proxy (Render) to allow express-rate-limit to get the correct client IP
+app.set('trust proxy', 1);
+
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
