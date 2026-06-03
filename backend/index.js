@@ -27,8 +27,6 @@ app.use(cookieParser());
 app.use(
     cors({
         origin: "https://productr-5edq.onrender.com", 
-        methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
-        allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept"],
         credentials: true,
     })
 );
