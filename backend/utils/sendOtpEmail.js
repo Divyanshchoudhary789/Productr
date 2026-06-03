@@ -1,9 +1,17 @@
-const resend = require("../config/resend.js");
+const nodemailer = require("nodemailer");
 
 const sendOtpEmail = async (email, otp) => {
     try {
-        const result = await resend.emails.send({
-            from: "Productr <onboarding@resend.dev>",
+        const transporter = nodemailer.createTransport({
+            service: "gmail",
+            auth: {
+                user: process.env.GMAIL_USER,
+                pass: process.env.GMAIL_APP_PASS,
+            },
+        });
+
+        const mailOptions = {
+            from: `"Productr" <${process.env.GMAIL_USER}>`,
             to: email,
             subject: "Your Verification OTP - Productr",
             html: `
@@ -26,9 +34,10 @@ const sendOtpEmail = async (email, otp) => {
                     <p>If you did not request this OTP, ignore this email.</p>
                 </div>
             `,
-        });
+        };
 
-        console.log("Email Sent:", result.id);
+        const result = await transporter.sendMail(mailOptions);
+        console.log("Email Sent:", result.messageId);
 
         return result;
     } catch (err) {

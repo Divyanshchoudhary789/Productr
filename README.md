@@ -42,7 +42,8 @@ Create a `.env` file in the `backend` directory and add the following variables:
 PORT=8080
 MONGODB_URL=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret_key
-# Add email service configurations for sending OTPs if required (e.g., SMTP host, port, user, pass)
+GMAIL_USER=your_gmail_address@gmail.com
+GMAIL_APP_PASS=your_16_digit_app_password
 ```
 
 *(Note: Replace placeholders like `your_mongodb_connection_string` with your actual credentials).*
