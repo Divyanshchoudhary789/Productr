@@ -100,6 +100,10 @@ export default function Login() {
                 otp: otpValue
             });
 
+            if (res.data.token) {
+                localStorage.setItem("token", res.data.token);
+            }
+
             await checkAuth();
 
             setOtp(new Array(6).fill(""));

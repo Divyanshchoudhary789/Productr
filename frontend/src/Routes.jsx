@@ -29,7 +29,7 @@ const ProjectRoutes = () => {
             navigate("/login", { replace: true });
         }
 
-        if (currentUser && location.pathname == "/login") {
+        if (currentUser && ["/login", "/signup"].includes(location.pathname)) {
             navigate("/", { replace: true });
         }
 

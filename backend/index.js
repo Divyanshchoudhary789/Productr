@@ -1,5 +1,8 @@
 const express = require('express');
 const app = express();
+const path = require('path');
+const dns = require('dns');
+dns.setDefaultResultOrder('ipv4first');
 
 // Trust the reverse proxy (Render) to allow express-rate-limit to get the correct client IP
 app.set('trust proxy', 1);
@@ -8,7 +11,7 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-dotenv.config();
+dotenv.config({ path: path.join(__dirname, ".env") });
 
 const mainRouter = require("./routes/main.router.js");
 

@@ -11,9 +11,9 @@ productRouter.get("/AllProducts", isAuthenticated, getAllProducts);
 productRouter.get("/published-products", isAuthenticated, getAllPublishedProducts);
 productRouter.get("/unpublished-products", isAuthenticated, getAllUnpublishedProducts);
 
-productRouter.post("/product/new", uploadImage.array("images", 5), isAuthenticated, addNewProduct);
+productRouter.post("/product/new", isAuthenticated, uploadImage.array("images", 5), addNewProduct);
 productRouter.get("/product/:id", isAuthenticated, getProductDetails);
-productRouter.put("/product/edit/:id", uploadImage.array("images", 5), isAuthenticated, updateProduct);
+productRouter.put("/product/edit/:id", isAuthenticated, uploadImage.array("images", 5), updateProduct);
 productRouter.delete("/product/delete/:id", isAuthenticated, deleteProduct);
 productRouter.patch("/product/toggle-status/:id", isAuthenticated, toggleStatus);
 

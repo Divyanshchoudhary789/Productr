@@ -47,6 +47,7 @@ export default function Navbar({
         } catch (error) {
             console.error(error);
         } finally {
+            localStorage.removeItem("token");
             setCurrentUser(null);
         }
     };

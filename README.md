@@ -44,6 +44,23 @@ MONGODB_URL=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret_key
 GMAIL_USER=your_gmail_address@gmail.com
 GMAIL_APP_PASS=your_16_digit_app_password
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_SECURE=false
+MAIL_FROM=your_verified_sender_email
+MAIL_REPLY_TO=your_reply_email@gmail.com
+```
+
+For Render free services, Gmail SMTP (`465`/`587`) can be blocked by Render's outbound SMTP policy. Keep Nodemailer, but use an SMTP relay that supports port `2525` and set:
+
+```env
+SMTP_HOST=your_smtp_relay_host
+SMTP_PORT=2525
+SMTP_SECURE=false
+SMTP_USER=your_smtp_username
+SMTP_PASS=your_smtp_password
+MAIL_FROM=your_verified_sender_email
+MAIL_REPLY_TO=your_reply_email@gmail.com
 ```
 
 *(Note: Replace placeholders like `your_mongodb_connection_string` with your actual credentials).*
